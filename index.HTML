@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trajetória Laisa — Q2/2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+padding:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #0f172a, #020617);
+      color: #e5e7eb;
+    }
+
+    header {
+margin-bottom: 20px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      color: #94a3b8;
+      margin-top: 6px;
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline-container {
+      position: relative;
+      margin: 20px auto 40px;
+      max-width: 900px;
+      padding: 0 24px;
+    }
+
+    .top-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+
+    .top-actions button {
+      background: #2563eb;
+      border: none;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .timeline {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .linha {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: #334155;
+      z-index: 1;
+    }
+
+    .ponto {
+      position: relative;
+      z-index: 2;
+      background: #1e293b;
+      border: 2px solid #64748b;
+      width: 90px;
+      height: 40px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+      user-select: none;
+    }
+
+    .ponto:hover {
+      background: #334155;
+    }
+
+    .ponto.ativo {
+      background: #2563eb;
+      border-color: #60a5fa;
+      font-weight: 600;
+    }
+
+    .ponto.final {
+      background: #16a34a;
+      border-color: #4ade80;
+    }
+
+    /* ===== BONECO ===== */
+    .boneco {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      font-size: 28px;
+      transition: left 0.6s ease;
+      z-index: 3;
+    }
+
+    /* ===== CONTEÚDO ===== */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #22c55e;
+      color: #022c22;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 6px 0;
+      font-size: 26px;
+    }
+
+    h3 {
+      margin: 6px 0 20px;
+      color: #cbd5f5;
+      font-weight: 400;
+    }
+
+    .conteudo {
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .acoes {
+      margin-top: 40px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .acoes button {
+      background: #2563eb;
+      border: none;
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .acoes button:disabled {
+      background: #334155;
+      cursor: not-allowed;
+    }
+.topo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-omie {
+  width: 200px;
+  margin-bottom: 12px; /* AFASTAMENTO do título */
+  opacity: 0.9;
+}
+
+.topo h1 {
+  margin: 0;
+}
+
+.subtitulo {
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.75;
+}
+  </style>
+</head>
+<body>
+ <div id="topo"></div>
+<header class="topo">
+  <img src="imgs/logo-omie.png" alt="Omie" class="logo-omie">
+
+  <h1>Segundo Semestre Q2/2025</h1>
+  <p class="subtitulo">Laisa Féder · Analista de Integração Contábil</p>
+<p class="subtitulo">Squad: Experiência do Parceiro</p>
+</header>
+<section class="timeline-container">
+<div class="boneco" id="boneco">🚶‍♀️‍➡️</div>
+  <div class="timeline">
+    <div class="linha"></div>
+
+    <div class="ponto ativo" data-index="0">Jul</div>
+    <div class="ponto" data-index="1">Ago</div>
+    <div class="ponto" data-index="2">Set</div>
+    <div class="ponto" data-index="3">Out</div>
+    <div class="ponto" data-index="4">Nov</div>
+    <div class="ponto" data-index="5">Dez</div>
+    <div class="ponto final" data-index="6">🏆</div>
+  </div>
+</section>
+
+<main>
+  <span class="badge" id="badge"></span>
+  <h2 id="mes"></h2>
+  <h3 id="titulo"></h3>
+
+  <div class="conteudo" id="texto"></div>
+
+  <div class="acoes">
+    <button id="btnAvancar">Avançar →</button>
+  </div>
+</main>
+
+<script src="conteudo.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
